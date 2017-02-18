@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/home/jimena/Documents/Proyectos/Octave/binaryConverter.h
+iostream
+-
+fstream
+-
+
 /home/jimena/Documents/Proyectos/Octave/main.cpp
 iostream
 -
+fstream
+-
+iostream
+-
+binaryConverter.h
+/home/jimena/Documents/Proyectos/Octave/binaryConverter.h
 

@@ -84,7 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/jimena/Documents/Proyectos/Octave/binaryConverter.h">
+			<Option target="Octave"/>
+		</Unit>
 		<Unit filename="/home/jimena/Documents/Proyectos/Octave/main.cpp">
+			<Option target="Octave"/>
+		</Unit>
+		<Unit filename="/home/jimena/Documents/Proyectos/Octave/pagedArray.h">
+			<Option target="Octave"/>
+		</Unit>
+		<Unit filename="/home/jimena/Documents/Proyectos/Octave/sortAlgorithms.h">
 			<Option target="Octave"/>
 		</Unit>
 		<Unit filename="/home/jimena/Documents/Proyectos/Octave/CMakeLists.txt">
