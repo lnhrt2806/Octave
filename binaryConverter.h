@@ -9,6 +9,10 @@
 using namespace std;
 
 
+
+
+
+
 void binaryConversion(){
     cout << "f contains: " << ifstream("f").rdbuf() ;
 

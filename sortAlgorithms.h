@@ -7,11 +7,6 @@
 
 #include "pagedArray.h"
 #include <fstream>
-#include <iterator>
-
-template<typename T, std::size_t N>
-constexpr std::size_t size(T(&)[N]) { return N; }
-
 
 
 void quickSortAux(pagedArray array, int left, int right){
@@ -33,6 +28,7 @@ void quickSortAux(pagedArray array, int left, int right){
     if(left < j)quickSortAux(array, left, j);
     if(i < right)quickSortAux(array, i, right);
     cout <<"termino"<<endl;
+    array[-1];
     return;
 }
 
@@ -40,7 +36,47 @@ void quickSortAux(pagedArray array, int left, int right){
 void quickSort(pagedArray array){
     int left = 0;
     int right = array.size -1;
-    return quickSortAux(array, left, right);
+    quickSortAux(array, left, right);
+    array[-1];
+    return;
+}
+
+void insertionSort(pagedArray array){
+    int i, j, aux;
+    for(i=0; i<array.size; i++) {
+        j=i;
+        while( j>0 && array[j] < array[j-1]){
+            aux = array[j];
+            array[j] = array[j-1];
+            array[j-1] = aux;
+            j--;
+        }
+    }
+    array[-1];
+}
+
+void selectionSort(pagedArray array){
+    int min,temp;
+    for (int i=0; i < array.size-1; i++)
+    {
+        min = i;//set pos_min to the current index of array
+
+        for (int j=i+1; j < array.size; j++)
+        {
+
+            if (array[j] < array[min])
+                min=j;
+            //pos_min will keep track of the index that min is in, this is needed when a swap happens
+        }
+
+        //if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
+        if (min != i)
+        {
+            temp = array[i];
+            array[i] = array[min];
+            array[min] = temp;
+        }
+    }
 }
 
 
