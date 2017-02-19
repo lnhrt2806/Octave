@@ -3,4 +3,6 @@
 
 CMakeFiles/Octave.dir/main.cpp.o: ../binaryConverter.h
 CMakeFiles/Octave.dir/main.cpp.o: ../main.cpp
+CMakeFiles/Octave.dir/main.cpp.o: ../pagedArray.h
+CMakeFiles/Octave.dir/main.cpp.o: ../sortAlgorithms.h
 

@@ -12,7 +12,7 @@ using namespace std;
 void binaryConversion(){
     cout << "f contains: " << ifstream("f").rdbuf() ;
 
-    ifstream firstRead("f") ;
+  /*  ifstream firstRead("f") ;
     int i;
     int j=0;
     int quantityInt =0;
@@ -45,8 +45,8 @@ void binaryConversion(){
         cout << "pos" <<binaryFile.tellp()<< endl;
         binaryFile.seekp(4);
         cout << "pos" <<binaryFile.tellp()<< endl;
-        binaryFile.write(reinterpret_cast<const char *>(&c[5]), sizeof(c[5]));*/
-    }
+        binaryFile.write(reinterpret_cast<const char *>(&c[5]), sizeof(c[5]));
+    }*/
 
 
     // obtiene los datos del archivo binario y los traduce a decimal
@@ -60,9 +60,38 @@ void binaryConversion(){
     }
     cout << "f2 contains: " << ifstream("f2").rdbuf() ;
 
-    return;
-}
+    ifstream firstRead("f2") ;
+      int i;
+      int j=0;
+      int quantityInt =0;
+      //primer recorrido para ver la cantidad de enteros del archivo total
+      while(firstRead >> i){
+          quantityInt++;
+          cout << i << endl;
+      }
+      int c[quantityInt];
+      cout << "sd"<< endl;
+      ifstream toCopyInBin("f") ;
+      while( toCopyInBin >> i ) {
+          c[j] = i;
+          j++;
+      }
+
+      for(int k=0; k<quantityInt; k++){
+          cout <<"c["<<k<<"] = "<< c[k] <<endl;
+      }
+
+      // write the integers in the array in binary form
+    {
+        ofstream binaryFileCopy("binaryfCopy.bin", ios::binary);
+        for (int k = 0; k < quantityInt; k++) {
+            binaryFileCopy.write(reinterpret_cast<const char *>(&c[k]), sizeof(c[k]));
+        }
+        cout << "succes" << endl;
+    }
+      return;
+  }
 
 
 
-#endif //OCTAVE_BINARYCONVERTER_H
+  #endif //OCTAVE_BINARYCONVERTER_H
