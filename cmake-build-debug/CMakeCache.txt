@@ -184,6 +184,12 @@ ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/sbin/sysctl
 
+//Value Computed by CMake
+Pruebas_BINARY_DIR:STATIC=/home/jimena/Documents/Proyectos/Octave/cmake-build-debug
+
+//Value Computed by CMake
+Pruebas_SOURCE_DIR:STATIC=/home/jimena/Documents/Proyectos/Octave
+
 
 ########################
 # INTERNAL cache entries

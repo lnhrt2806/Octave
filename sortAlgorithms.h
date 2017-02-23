@@ -8,37 +8,36 @@
 #include "pagedArray.h"
 #include <fstream>
 
-
-void quickSortAux(pagedArray array, int left, int right){
-    int pivote = array[(left+right)/2];
-    int i = left;
-    int j = right;
-    int aux;
-    while(i<=j){
-        while((array[i] < pivote) && (j <=right)){i++;}
-        while((pivote<array[j]) && (j > left)){j--;}
-        if(i <= j){
-            aux = array[i];
-            array[i] = array[j];
-            array[j] =aux;
+void quicksort(pagedArray array,int izq, int der ) {
+    int i, j, x , aux;
+    i = izq;
+    j = der;
+    x = array[(izq + der) /2];
+    do{
+        while( (array[i] < x) && (j <= der) )
+        {
             i++;
+        }
+
+        while( (x < array[j]) && (j > izq) )
+        {
             j--;
         }
-    }
-    if(left < j)quickSortAux(array, left, j);
-    if(i < right)quickSortAux(array, i, right);
-    cout <<"termino"<<endl;
-    array[-1];
-    return;
-}
 
+        if( i <= j )
+        {
+            aux = array[i];
+            array[i] = array[j]; array[j] = aux;
+            i++;  j--;
+        }
 
-void quickSort(pagedArray array){
-    int left = 0;
-    int right = array.size -1;
-    quickSortAux(array, left, right);
+    }while( i <= j );
+
+    if( izq < j )
+        quicksort( array, izq, j );
+    if( i < der ){
+        quicksort( array, i, der );}
     array[-1];
-    return;
 }
 
 void insertionSort(pagedArray array){
@@ -77,6 +76,7 @@ void selectionSort(pagedArray array){
             array[min] = temp;
         }
     }
+    array[-1];
 }
 
 
