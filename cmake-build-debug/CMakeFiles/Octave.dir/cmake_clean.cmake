@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Octave.dir/main.cpp.o"
+  "CMakeFiles/Octave.dir/pagedArray.cpp.o"
   "Octave.pdb"
   "Octave"
 )

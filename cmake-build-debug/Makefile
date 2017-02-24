@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pagedArray.o: pagedArray.cpp.o
+
+.PHONY : pagedArray.o
+
+# target to build an object file
+pagedArray.cpp.o:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/pagedArray.cpp.o
+.PHONY : pagedArray.cpp.o
+
+pagedArray.i: pagedArray.cpp.i
+
+.PHONY : pagedArray.i
+
+# target to preprocess a source file
+pagedArray.cpp.i:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/pagedArray.cpp.i
+.PHONY : pagedArray.cpp.i
+
+pagedArray.s: pagedArray.cpp.s
+
+.PHONY : pagedArray.s
+
+# target to generate assembly for a file
+pagedArray.cpp.s:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/pagedArray.cpp.s
+.PHONY : pagedArray.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pagedArray.o"
+	@echo "... pagedArray.i"
+	@echo "... pagedArray.s"
 .PHONY : help
 
 

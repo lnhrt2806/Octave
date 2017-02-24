@@ -5,3 +5,6 @@ CMakeFiles/Octave.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Octave.dir/main.cpp.o: ../pagedArray.h
 CMakeFiles/Octave.dir/main.cpp.o: ../sortAlgorithms.h
 
+CMakeFiles/Octave.dir/pagedArray.cpp.o: ../pagedArray.cpp
+CMakeFiles/Octave.dir/pagedArray.cpp.o: ../pagedArray.h
+
