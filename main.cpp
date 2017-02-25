@@ -2,8 +2,14 @@
 #include "pagedArray.h"
 #include "sortAlgorithms.h"
 #include "filesConverter.h"
+#include <string.h>
 #include <fstream>
 #include <iostream>
+
+string entryFile;
+string resultFile;
+int algorithm;
+
 
 int intCounter(ifstream& file){
     file.seekg(0, ios_base::end);
@@ -22,19 +28,51 @@ void createPagedArray(string file){
         intsArray[index] = v;
         index++;
     }
+    switch (algorithm){
+        case 1:
+            quicksort(intsArray);
+        case 2:
+            selectionSort(intsArray);
+        case 3:
+            insertionSort(intsArray);
+        default:
+            cout <<"Ninguno";
+    }
     //quicksort(intsArray);
     //insertionSort(intsArray);
-    selectionSort(intsArray);
-    filesConverter::binaryToDecimal(binFile, file+"_resultado");
+    //selectionSort(intsArray);
+
+
+    filesConverter::binaryToDecimal(binFile, resultFile);
     remove(binFile.c_str());
 }
 
 
-int main() {
-  createPagedArray("1KB");
+int main(int argc, char* argv[]) {
+    if(argc == 7) {
+        if ((strcmp("-i", argv[1]) ==0 && strcmp("-a", argv[3]) ==0 && strcmp("-o", argv[5])==0)){
+            string fileName(argv[2]);
+            string sortType(argv[4]);
+            string fileResult(argv[6]);
+            if(fileName.compare(fileResult) !=0) {
+                entryFile = fileName;
+                resultFile = fileResult;
+                if (sortType.compare("QS") == 0 || sortType.compare("SS") == 0 || sortType.compare("IS") == 0) {
+                    if (sortType.compare("QS") == 0){cout << "se usara quicksort"; algorithm = 1;}
+                    else if (sortType.compare("SS") == 0){cout << "se usara selectionsort"; algorithm = 2;}
+                    else if (sortType.compare("IS") == 0){cout << "se usara insertionsort"; algorithm = 3;}
+                } else cout << "No se reconoce el tipo de ordenamiento";
+            }else{cout <<"El archivo resultado no puede ser igual al de entrada";}
+        }else { cout << "No se reconoce el comando" << endl;}
+    }else{
+        cout <<"Cantidad de argumentos invalidos. Debe ser ./paged-sort -i <archivo> -a {QS|IS|SS} -o <archivo_resultado>"; }
+    cout<<endl;
+    createPagedArray(entryFile);
+
+ /* createPagedArray("1KB");
     createPagedArray("4KB");
     createPagedArray("8KB");
-    createPagedArray("12KB");createPagedArray("24KB");createPagedArray("36KB");
+    createPagedArray("12KB");createPagedArray("24KB");createPagedArray("36KB");*/
 
 
   //createFile();

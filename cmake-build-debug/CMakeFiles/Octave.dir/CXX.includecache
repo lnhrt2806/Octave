@@ -27,6 +27,8 @@ sortAlgorithms.h
 /home/jimena/Documents/Proyectos/Octave/sortAlgorithms.h
 filesConverter.h
 /home/jimena/Documents/Proyectos/Octave/filesConverter.h
+string.h
+-
 fstream
 -
 iostream
