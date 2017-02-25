@@ -3,5 +3,5 @@ project(Octave)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp pagedArray.cpp frame.h)
+set(SOURCE_FILES main.cpp pagedArray.cpp frame.h filesConverter.cpp)
 add_executable(Octave ${SOURCE_FILES})

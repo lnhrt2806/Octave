@@ -7,7 +7,7 @@
 using namespace std;
 
 
-pagedArray::pagedArray(int x, char *fileName) {
+pagedArray::pagedArray(int x, const char *fileName) {
     frame1 = new frame();
     frame2 = new frame();
     frame3 = new frame();

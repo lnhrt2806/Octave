@@ -123,6 +123,33 @@ Octave/fast:
 	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/build
 .PHONY : Octave/fast
 
+filesConverter.o: filesConverter.cpp.o
+
+.PHONY : filesConverter.o
+
+# target to build an object file
+filesConverter.cpp.o:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/filesConverter.cpp.o
+.PHONY : filesConverter.cpp.o
+
+filesConverter.i: filesConverter.cpp.i
+
+.PHONY : filesConverter.i
+
+# target to preprocess a source file
+filesConverter.cpp.i:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/filesConverter.cpp.i
+.PHONY : filesConverter.cpp.i
+
+filesConverter.s: filesConverter.cpp.s
+
+.PHONY : filesConverter.s
+
+# target to generate assembly for a file
+filesConverter.cpp.s:
+	$(MAKE) -f CMakeFiles/Octave.dir/build.make CMakeFiles/Octave.dir/filesConverter.cpp.s
+.PHONY : filesConverter.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,6 +213,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Octave"
+	@echo "... filesConverter.o"
+	@echo "... filesConverter.i"
+	@echo "... filesConverter.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

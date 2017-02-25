@@ -11,6 +11,16 @@ using namespace std;
 
 const int numFrames = 6;
 
+class frame{
+public:
+    int frameNumber;
+    int pageNumber= -1;
+    int* loadedPageContent = NULL;
+    int numOfUseOfPage = 0;
+    frame(){
+    }
+};
+
 class pagedArray{
 private:
     int* mainArray = NULL;
@@ -18,10 +28,10 @@ private:
     frame* framesArr[numFrames];
 
 public:
-    char* file;
+    const char* file;
     int settingIndex;
     int size;
-    pagedArray(int x, char * filename);
+    pagedArray(int x, const char* filename);
     int& operator[](int x);
     int mostUsedPage();
     int replace(int pageNum, int newPageNum, int posToLook);
@@ -32,15 +42,7 @@ public:
     frame *frame1, *frame2, *frame3, *frame4, *frame5, *frame6;
 };
 
-class frame{
-public:
-    int frameNumber;
-    int pageNumber= -1;
-    int* loadedPageContent = NULL;
-    int numOfUseOfPage = 0;
-    frame(){
-    }
-};
+
 
 
 

@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/jimena/Documents/Proyectos/Octave/filesConverter.cpp
+filesConverter.h
+/home/jimena/Documents/Proyectos/Octave/filesConverter.h
+
+/home/jimena/Documents/Proyectos/Octave/filesConverter.h
+iostream
+-
+fstream
+-
+pagedArray.h
+/home/jimena/Documents/Proyectos/Octave/pagedArray.h
+
 /home/jimena/Documents/Proyectos/Octave/main.cpp
 iostream
 -
@@ -13,6 +25,8 @@ pagedArray.h
 /home/jimena/Documents/Proyectos/Octave/pagedArray.h
 sortAlgorithms.h
 /home/jimena/Documents/Proyectos/Octave/sortAlgorithms.h
+filesConverter.h
+/home/jimena/Documents/Proyectos/Octave/filesConverter.h
 fstream
 -
 iostream

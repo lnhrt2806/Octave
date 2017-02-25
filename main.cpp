@@ -1,6 +1,7 @@
 #include <iostream>
 #include "pagedArray.h"
 #include "sortAlgorithms.h"
+#include "filesConverter.h"
 #include <fstream>
 #include <iostream>
 
@@ -9,66 +10,65 @@ int intCounter(ifstream& file){
     return file.tellg()/4;
 }
 
-void createFile(){
-    ifstream firstRead("f") ;
-    int i;
-    int j=0;
-    int quantityInt =0;
-    //primer recorrido para ver la cantidad de enteros del archivo total
-    while(firstRead >> i){
-        quantityInt++;
-        cout << i << endl;
-    }
-    int c[quantityInt];
-    ifstream secondRead("f") ;
-    while( secondRead >> i ) {
-        c[j] = i;
-        j++;
-    }
-
-    for(int k=0; k<quantityInt; k++){
-        cout <<"c["<<k<<"] = "<< c[k] <<endl;
-    }
-
-    // write the integers in the array in binary form
-    {
-        ofstream binaryFile("binary36KB.bin", ios::binary);
-        for (int k = 0; k < quantityInt; k++) {
-            binaryFile.write(reinterpret_cast<const char *>(&c[k]), sizeof(c[k]));
-        }}
-
-}
-int main() {
-   //createFile();
-
-   ifstream sortFile("binary36KB.bin", ios::binary);
+void createPagedArray(string file){
+    string binFile = filesConverter::decimalToBinary(file);
+    ifstream sortFile(binFile, ios::binary);
     int numInts = intCounter(sortFile);
-    int numInts1 = numInts;
-    cout << "El archivo tiene " << numInts1 << " enteros " << endl;
-
-
     sortFile.seekg(0);
-    pagedArray intsArray(numInts1, "binary36KB.bin");
+    pagedArray intsArray(numInts, binFile.c_str());
     int v;
     int index = 0;
     while (sortFile.read(reinterpret_cast<char *>(&v), sizeof(v))) {
         intsArray[index] = v;
         index++;
     }
-
-    //selectionSort(intsArray);
+    //quicksort(intsArray);
     //insertionSort(intsArray);
-    quicksort(intsArray, 0, intsArray.size-1);
+    selectionSort(intsArray);
+    filesConverter::binaryToDecimal(binFile, file+"_resultado");
+    remove(binFile.c_str());
+}
+
+
+int main() {
+  createPagedArray("1KB");
+    createPagedArray("4KB");
+    createPagedArray("8KB");
+    createPagedArray("12KB");createPagedArray("24KB");createPagedArray("36KB");
+
+
+  //createFile();
+    //string binFile = filesConverter::decimalToBinary("binary36KB");
+  /*  string binFile = filesConverter::decimalToBinary("1KB");
+    ifstream sortFile(binFile, ios::binary);
+    int numInts = intCounter(sortFile);
+    sortFile.seekg(0);
+    int numInts1 = numInts;
+    pagedArray intsArray(numInts1, binFile.c_str());
+
+  /* int v;
+    int index = 0;
+    while (sortFile.read(reinterpret_cast<char *>(&v), sizeof(v))) {
+        intsArray[index] = v;
+        index++;
+    }
+        filesConverter::binaryToArray(binFile, intsArray);
+
+        //selectionSort(intsArray);
+        //insertionSort(intsArray);
+        selectionSort(intsArray);
+        //filesConverter::binaryToDecimal(binFile, binFile+"_resultado");
 
 
     {
         int v;
-        ifstream infile("binary36KB.bin", ios::binary);
+        ifstream infile(binFile, ios::binary);
         infile.seekg(0);
         while (infile.read(reinterpret_cast<char *>(&v), sizeof(v))) {
             cout << v << ' ';
         }
+    }
+*/
+            return 0;
 
-
-        return 0;
-    }}
+    }
