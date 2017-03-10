@@ -7,13 +7,14 @@
 #include <iostream>
 #include <fstream>
 #include "pagedArray.h"
-using namespace std;
 
+/**
+ * Class filesConverter is the one in charge of managing the conversion of files from binary to decimal and viceverse
+ */
 class filesConverter{
 public:
     static string decimalToBinary(string txtFile);
     static void binaryToDecimal(string file, string resultFile);
-
 };
 
 #endif //OCTAVE_BINARYCONVERTER_H

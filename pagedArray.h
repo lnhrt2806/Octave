@@ -10,7 +10,9 @@
 using namespace std;
 
 const int numFrames = 6;
-
+/**
+ * Class frame contains the numbers that are uploaded in RAM
+ */
 class frame{
 public:
     int frameNumber;
@@ -20,7 +22,9 @@ public:
     frame(){
     }
 };
-
+/**
+ * Class pagedArray is the one in charge of doing the pagination stuff with the operator overloading
+ */
 class pagedArray{
 private:
     int* mainArray = NULL;

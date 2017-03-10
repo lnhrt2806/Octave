@@ -31,8 +31,6 @@ string.h
 -
 fstream
 -
-iostream
--
 
 /home/jimena/Documents/Proyectos/Octave/pagedArray.cpp
 pagedArray.h

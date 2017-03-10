@@ -5,7 +5,11 @@
 using namespace std;
 string bin (".bin");
 
-
+/**
+ * Function that creates the new file where all the numbers are sorted
+ * @param txtfile binary file that will be translated
+ * @param resultFile file that will have the sorted numbers
+ */
 void filesConverter::binaryToDecimal(string txtfile, string resultFile){
     ifstream infile(txtfile, ios::binary ) ;
     ofstream outfile(resultFile);
@@ -14,7 +18,11 @@ void filesConverter::binaryToDecimal(string txtfile, string resultFile){
         outfile << v << ' ' ;
     outfile << '\n' ;
 }
-
+/**
+ * Function that will translate the numbers into a binary file to manage the sorting
+ * @param txtFile original file from where the numbers will be copied
+ * @return the name of the binary file
+ */
 string filesConverter::decimalToBinary(string txtFile) {
     ifstream firstRead(txtFile) ;
     int i; int j=0; int quantityInt =0;

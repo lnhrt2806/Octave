@@ -9,7 +9,12 @@
 #include <fstream>
 
 
-
+/**
+ * Auxiliar recursive function of quicksort
+ * @param array the pagedArray that will be sorted
+ * @param izq index of the first element
+ * @param der index of the last element
+ */
 void quicksortAux(pagedArray array,int izq, int der ){
     int i, j, x , aux;
     i = izq;
@@ -26,15 +31,21 @@ void quicksortAux(pagedArray array,int izq, int der ){
     }while( i <= j );
     if( izq < j ) quicksortAux( array, izq, j );
     if( i < der ){quicksortAux( array, i, der );}
-    array[-1];
+    array[-1];//Condicion para bajar todas las paginas que esten subidas en RAM
 }
-
+/**
+ * Main function of quicksort
+ * @param array the pagedArray that will be sorted
+ */
 void quicksort(pagedArray array){
     int izq = 0;
     int der = array.size-1;
     return quicksortAux(array, izq, der);
 }
-
+/**
+ * Sort algorithm of insertion sort
+ * @param array the pagedArray that will be sorted
+ */
 void insertionSort(pagedArray array){
     int i, j, aux;
     for(i=0; i<array.size; i++) {
@@ -46,10 +57,13 @@ void insertionSort(pagedArray array){
             j--;
         }
     }
-    array[-1];
+    array[-1];//Condicion para bajar todas las paginas que esten subidas en RAM
 }
 
-
+/**
+ * Sort algorithm of selection sort
+ * @param array the pagedArray that will be sorted
+ */
 void selectionSort(pagedArray array) {
     int temp;
     for(int i=0; i<array.size; i++){
@@ -61,7 +75,7 @@ void selectionSort(pagedArray array) {
             }
         }
     }
-    array[-1];
+    array[-1];//Condicion para bajar todas las paginas que esten subidas en RAM
 }
 
 
